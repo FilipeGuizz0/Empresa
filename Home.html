@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Menu Lateral Puxável</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+
+        #menu {
+            width: 0;
+            height: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            background-color: #333;
+            overflow-x: hidden;
+            transition: 0.5s;
+            padding-top: 60px;
+        }
+
+        #menu a {
+            padding: 15px 25px;
+            text-decoration: none;
+            font-size: 18px;
+            color: #fff;
+            display: block;
+            transition: 0.3s;
+        }
+
+        #menu a:hover {
+            background-color: #555;
+        }
+
+        #menu .closebtn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            font-size: 28px;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        #main {
+            transition: margin-left .5s;
+            padding: 16px;
+            margin-left: 0;
+        }
+
+        .sub-menu {
+            display: none;
+            padding-left: 20px;
+        }
+
+        .active .sub-menu {
+            display: block;
+        }
+
+        /* Estilo de fonte menor para o submenu */
+        #menu .sub-menu a {
+            font-size: 11px;
+        }
+
+        .card {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            width: 25%;
+            height: 20%;
+        }
+
+        /* Personalização adicional */
+        #menu {
+            font-family: 'Verdana', sans-serif;
+        }
+
+        #menu a {
+            color: #ffffff;
+        }
+
+        #menu .closebtn {
+            color: #ffffff;
+        }
+
+        #main {
+            background-color: #f0f0f0;
+        }
+
+        .content {
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+
+<div id="menu">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeMenu()">&#9665; </a>
+    <a href="#" onclick="toggleSubMenu(this)">Cadastros</a>
+    <div class="sub-menu">
+        <a href="pessoa.php">Cadastro de Pessoas</a>
+        <a href="tamanhos.php">Cadastro de tamanhos</a>
+        <a href="colecao.php">Cadastro de coleção </a>
+        <a href="marca.php">Cadastro de marca </a>
+        <a href="grupos.php">Cadastro de grupos </a>
+        <a href="contacorrente.php">Cadastro de contas correntes </a>
+        <a href="banco.php">Cadastro de bancos </a>
+        <a href="contaspagar.php">Cadastros de Contas a pagar </a>
+        <a href="contasreceber.php">Cadastros de contas a receber </a>
+        <a href="subgrupo.php">Cadastros de subgrupo </a>
+        <a href="movimento.php">Cadastros de movimento </a>
+        <a href="produtos.php">Cadastros de produtos </a>
+        <a href="produtostamanho.php">Cadastros de produtos e tamanhos </a>
+        <a href="usuario.php">Cadastros de usuarios </a>
+    </div>
+    <a href="#">Administração</a>
+    <a href="#">Financeiro</a>
+    <a href="#">Crediário</a>
+</div>
+
+<div id="main">
+    <span style="font-size:30px;cursor:pointer" onclick="openMenu()">&#9654; </span>
+    <div class="card">
+        <a href="telapagamento.php">pagar</a>
+        <p></p>
+    </div>
+</div>
+
+<script>
+    function openMenu() {
+        document.getElementById("menu").style.width = "250px";
+        document.getElementById("main").style.marginLeft = "250px";
+    }
+
+    function closeMenu() {
+        document.getElementById("menu").style.width = "0";
+        document.getElementById("main").style.marginLeft = "0";
+    }
+
+    function toggleSubMenu(item) {
+        var parentListItem = item.parentElement;
+        if (parentListItem.classList.contains("active")) {
+            parentListItem.classList.remove("active");
+        } else {
+            parentListItem.classList.add("active");
+        }
+    }
+</script>
+
+</body>
+</html>
+
+
+
+
